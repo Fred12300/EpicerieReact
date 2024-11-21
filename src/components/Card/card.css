@@ -11,7 +11,7 @@
 }
 
 .card:hover {
-    transform: rotate3d(-3,1,1,10deg);
+    transform: rotate3d(-3,1,1,0deg);
     box-shadow: 6px 5px 15px rgba(0, 0, 0, 0.3);
     color: rgb(6, 6, 87);
 }
@@ -42,7 +42,7 @@
     transform: translateY(-1.7em);
     width: 100%;
     height: 102%;
-    object-fit: contain;
+    object-fit: cover;
     transition: transform 1s, box-shadow 1s;
 }
 
@@ -59,4 +59,10 @@
 
 h3 {
     margin: 0.3em;
+}
+
+.totalProd {
+    display: flex;
+    align-items: center;
+    gap: .5em;
 }

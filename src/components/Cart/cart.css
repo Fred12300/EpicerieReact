@@ -1,0 +1,28 @@
+.cart {
+    position: absolute;
+    top: 10em;
+    right: 0;
+    width: 17em;
+    border: 2px solid black;
+    margin: 1em;
+    padding: .5em;
+}
+
+.cartItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    & button {
+        font-size: smaller;
+        padding: .2em .5em;
+    }
+}
+
+.item {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

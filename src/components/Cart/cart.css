@@ -1,12 +1,15 @@
 .cart {
     position: fixed;
     top: 10em;
-    right: 0;
-    width: 17em;
+    right: calc((100vw - 19em)/2);
+    width: 19em;
     border: 2px solid black;
     margin: 1em;
-    padding: .5em;
+    padding: .8em;
     border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    z-index: 2;
 }
 
 .cartItem {
@@ -31,3 +34,24 @@
 .total {
     text-align: end;
 }
+
+.close {
+    border: solid 1px;
+    border-radius: 50px;
+    width: 1.2em;
+    text-align: center;
+}
+
+.close:hover {
+    cursor: pointer;
+    background-color: rgb(27, 27, 141);
+    color: white;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hidden {display: none;}

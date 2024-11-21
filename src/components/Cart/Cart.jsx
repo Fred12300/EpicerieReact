@@ -1,14 +1,17 @@
 import './cart.css'
 
-export const Cart = ({cartContent, addToCart, removeFromCart}) => {
+export const Cart = ({cartContent, addToCart, removeFromCart, hideCart, hide}) => {
 
     let total = 0;
     cartContent.map((elem)=>(total+=(elem.product.prix)*(elem.qte)));
     total = total.toFixed(2);
 
     return(
-        <div className='cart'>
-            <h3>Votre Panier</h3>
+        <div className={`cart ${hide ? 'hidden' : ''}`}>
+            <div className="head">
+                <h3>Votre Panier</h3>
+                <div className='close' onClick={hideCart}>X</div>
+            </div>
             {cartContent.length > 0 ? (
                 cartContent.map((article, index) => (
                 <div className='cartItem' key={index}>

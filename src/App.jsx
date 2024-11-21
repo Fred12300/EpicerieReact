@@ -35,6 +35,20 @@ function App() {
         setCartContent(updatedCart);
     }
 }
+  const cartBox = document.querySelector('.cart');
+
+  const [hide, setHide] = useState(false);
+
+  const hideCart = () => {
+    console.log('hide');
+    setHide(true)
+  }
+
+  const showCart = () => {
+    console.log('show');
+    setHide(false)
+  }
+
 
   useEffect(() => {
     fetch('https://api.npoint.io/68bf5db20a3c236f68ed')
@@ -51,8 +65,20 @@ function App() {
 
   return (
     <>
-    <h1>Mon épicerie en ligne</h1>
+    <div className="header">
+      <h1>Mon épicerie en ligne</h1>
+      <img className="logo" src="epicerie.png" alt="logo" />
+    </div>
     <div className="main">
+      <Cart
+        cartContent={cartContent}
+        setCartContent={setCartContent}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+        hideCart = {hideCart}
+        showCart={showCart}
+        hide={hide}
+      />
       <List
         products={products}
         categories={categories}
@@ -60,13 +86,9 @@ function App() {
         cartContent={cartContent} 
         addToCart={addToCart}
         removeFromCart={removeFromCart}
+        showCart={showCart}
       />
-      <Cart
-        cartContent={cartContent}
-        setCartContent={setCartContent}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-      />
+      
     </div>
     </> 
   )

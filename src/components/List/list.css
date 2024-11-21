@@ -1,9 +1,7 @@
 .main {
   display: inherit;
-  width: 75vw;
-  height: 75vh;
-}
 
+}
 
 .productsList {
     width: 100%;
@@ -13,19 +11,4 @@
     justify-content: center;
     gap: 2em;
 
-  }
-  
-  .filterBar {
-    display: flex;
-    align-items: center;
-    & h3 {
-      margin-right: 3em;
-    }
-  
-    & button {
-      font-size: small;
-      font-weight: 100;
-      background: none;
-      border: none;
-    }
   }

@@ -1,0 +1,51 @@
+.filterBar {
+    display: flex;
+    align-items: center;
+
+    & h3 {
+        margin-right: 3em;
+    }
+
+    & small {
+        margin-right: 1em;
+    }
+
+    & button {
+        font-size: small;
+        font-weight: 100;
+        border: none;
+        margin: 0;
+        padding: .4em;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cartBtn {
+    width: 1.3em;
+    height: 1.3em;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: .5em;
+    padding: .3em;
+    object-fit: cover;
+}
+
+.cartBtn:hover {
+    filter: invert();
+    background-color: rgb(210, 240, 75);
+}
+
+.filtre {
+    display: flex;
+    align-items: center;
+}
+
+.filtreCat {
+    margin-right: 2em;
+}

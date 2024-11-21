@@ -2,9 +2,10 @@ import './list.css'
 import { useEffect, useState } from 'react'
 import Button from '../Button/Button';
 import Card from '../Card/Card'
+import { Filter } from '../Filter/Filter';
 
 
-export const List = ({products, categories, setCartContent, cartContent, addToCart, removeFromCart}) => {
+export const List = ({showCart, products, categories, setCartContent, cartContent, addToCart, removeFromCart}) => {
 
   const [filtre, setFiltre] = useState('');
 
@@ -13,8 +14,6 @@ export const List = ({products, categories, setCartContent, cartContent, addToCa
   const [sortBy, setSortBy] = useState('');
 
   const [sorted, setSorted] = useState([]);
-
-
 
   useEffect(() => {
     if (filtre == '') {
@@ -50,17 +49,13 @@ export const List = ({products, categories, setCartContent, cartContent, addToCa
 
   return (
     <main className='main'>
-    <Button content="Tous" setFiltre={setFiltre} filtre=''/>
-    {categories.map((cat, index)=><Button key={index} content={cat} setFiltre={setFiltre} filtre={cat}/>)}
-
-    <div className="filterBar">
-      <h3>{filtre.charAt(0).toUpperCase() + filtre.slice(1) || 'Tous les produits'}</h3>
-      <small>Trier par: </small>
-      <button onClick={() => setSortBy('priceUp')}>Prix +</button>
-      <button onClick={() => setSortBy('priceDown')}>Prix -</button>
-      <button onClick={() => setSortBy('productName')}>Nom</button>
-    </div>
-
+    <Filter
+      categories={categories}
+      setFiltre={setFiltre}
+      filtre={filtre}
+      setSortBy={setSortBy}
+      showCart={showCart}
+    />
     <div className="productsList">
       {sorted.map((prod, index) =>
       <Card key={index} prod={prod} setCartContent={setCartContent} cartContent={cartContent} addToCart={addToCart} removeFromCart={removeFromCart}/>

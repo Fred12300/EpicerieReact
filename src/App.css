@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 .main {
   display: flex;
+}
+
+h1 {
+  margin-left: 1em;
+  font-family: 'Lobster Two', cursive;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin: 1em;
+  height: 2.5em;
+  width: 2.5em;
 }

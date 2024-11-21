@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import Card from '../Card/Card'
 
 
-export const List = ({products, categories, setCartContent, cartContent}) => {
+export const List = ({products, categories, setCartContent, cartContent, addToCart, removeFromCart}) => {
 
   const [filtre, setFiltre] = useState('');
 
@@ -52,7 +52,7 @@ export const List = ({products, categories, setCartContent, cartContent}) => {
     <main className='main'>
     <Button content="Tous" setFiltre={setFiltre} filtre=''/>
     {categories.map((cat, index)=><Button key={index} content={cat} setFiltre={setFiltre} filtre={cat}/>)}
-    <hr />
+
     <div className="filterBar">
       <h3>{filtre.charAt(0).toUpperCase() + filtre.slice(1) || 'Tous les produits'}</h3>
       <small>Trier par: </small>
@@ -60,10 +60,10 @@ export const List = ({products, categories, setCartContent, cartContent}) => {
       <button onClick={() => setSortBy('priceDown')}>Prix -</button>
       <button onClick={() => setSortBy('productName')}>Nom</button>
     </div>
-    <hr />
+
     <div className="productsList">
       {sorted.map((prod, index) =>
-      <Card key={index} prod={prod} setCartContent={setCartContent} cartContent={cartContent}/>
+      <Card key={index} prod={prod} setCartContent={setCartContent} cartContent={cartContent} addToCart={addToCart} removeFromCart={removeFromCart}/>
       )
       }
     </div>

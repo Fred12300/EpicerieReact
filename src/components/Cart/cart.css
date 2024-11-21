@@ -1,11 +1,12 @@
 .cart {
-    position: absolute;
+    position: fixed;
     top: 10em;
     right: 0;
     width: 17em;
     border: 2px solid black;
     margin: 1em;
     padding: .5em;
+    border-radius: 20px;
 }
 
 .cartItem {
@@ -25,4 +26,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.total {
+    text-align: end;
 }

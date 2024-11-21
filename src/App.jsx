@@ -10,6 +10,32 @@ function App() {
   const [cartContent, setCartContent] = useState([]);
   const categories = [];
 
+  const addToCart = (prod) => {
+    const existingItemIndex = cartContent.findIndex(
+      (item) => item.product.nom === prod.nom
+    );
+  
+    if (existingItemIndex !== -1) {
+      const updatedCart = [...cartContent];
+      updatedCart[existingItemIndex].qte += 1;
+      setCartContent(updatedCart);
+    } else {
+      setCartContent([...cartContent, { product: prod, qte: 1 }]);
+    }
+  };
+
+  const removeFromCart = (index) =>{
+    if(cartContent[index].qte <= 1) {
+    const tempCart = [...cartContent];
+    tempCart.splice(index,1);
+    setCartContent(tempCart);
+    } else {
+        const updatedCart = [...cartContent];
+        updatedCart[index].qte -= 1;
+        setCartContent(updatedCart);
+    }
+}
+
   useEffect(() => {
     fetch('https://api.npoint.io/68bf5db20a3c236f68ed')
       .then(response => response.json())
@@ -27,8 +53,20 @@ function App() {
     <>
     <h1>Mon épicerie en ligne</h1>
     <div className="main">
-      <List products={products} categories={categories} setCartContent={setCartContent} cartContent={cartContent}/>
-      <Cart cartContent={cartContent} setCartContent={setCartContent}/>
+      <List
+        products={products}
+        categories={categories}
+        setCartContent={setCartContent}
+        cartContent={cartContent} 
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+      />
+      <Cart
+        cartContent={cartContent}
+        setCartContent={setCartContent}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+      />
     </div>
     </> 
   )

@@ -1,0 +1,13 @@
+button {
+    margin: .5em;
+    border-radius: 6px;
+    box-shadow: 1px 2px 4px 0px rgba(128, 128, 128, 0.651);
+    padding: .5em 1.2em;
+    background: linear-gradient(rgb(218, 232, 240), rgb(156, 241, 234));
+    font-weight: 900;
+}
+
+button:hover {
+    box-shadow: 0 0 0;
+    background: linear-gradient(rgb(109, 192, 248), rgb(52, 156, 216));
+}

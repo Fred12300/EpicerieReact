@@ -27,7 +27,10 @@ export const Cart = ({cartContent, addToCart, removeFromCart, hideCart, hide}) =
             ) : (
                 <p>Votre panier est vide.</p>
             )}
-            { cartContent.length > 0 && <h4 className='total'>Total {total} €</h4> }
+            { cartContent.length > 0 &&
+            <div className='totalBox'>
+                <h4 className='totalTitle'>Total</h4><h4 className='total'> {total} €</h4>
+            </div> }
         </div>
     )
 }

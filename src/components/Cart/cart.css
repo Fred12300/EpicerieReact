@@ -1,7 +1,7 @@
 .cart {
     position: fixed;
     top: 10em;
-    right: calc((100vw - 19em)/2);
+    right: calc((100vw - 23em)/2);
     width: 19em;
     border: 2px solid black;
     margin: 1em;
@@ -29,6 +29,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.totalBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.totalTitle{
+    padding-left: 10em;
 }
 
 .total {

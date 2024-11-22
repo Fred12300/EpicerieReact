@@ -6,10 +6,13 @@ import { Cart } from './components/Cart/Cart';
 
 function App() {
 
+//Déclarations
   const [products, setProducts] = useState([]);
   const [cartContent, setCartContent] = useState([]);
   const categories = [];
+  const [hide, setHide] = useState(true);
 
+//Fonction d'ajout au panier
   const addToCart = (prod) => {
     const existingItemIndex = cartContent.findIndex(
       (item) => item.product.nom === prod.nom
@@ -24,6 +27,7 @@ function App() {
     }
   };
 
+//Fonction de retraît du panier
   const removeFromCart = (index) =>{
     if(cartContent[index].qte <= 1) {
     const tempCart = [...cartContent];
@@ -34,22 +38,19 @@ function App() {
         updatedCart[index].qte -= 1;
         setCartContent(updatedCart);
     }
-}
-  const cartBox = document.querySelector('.cart');
+  }
 
-  const [hide, setHide] = useState(false);
-
+//Fonctions d'affichage ou non du panier
   const hideCart = () => {
     console.log('hide');
     setHide(true)
   }
-
   const showCart = () => {
     console.log('show');
     setHide(false)
   }
 
-
+//Récupération des données de l'API
   useEffect(() => {
     fetch('https://api.npoint.io/68bf5db20a3c236f68ed')
       .then(response => response.json())
@@ -58,6 +59,7 @@ function App() {
       })
   }, [])
 
+//Création de la liste des catégories
   products.map((prod)=>{
     if(!categories.includes(prod.categorie.nom)){(categories.push(prod.categorie.nom))}
   })

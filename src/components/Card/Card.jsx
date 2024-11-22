@@ -1,16 +1,25 @@
+import { useState } from 'react';
+import { Alt } from '../Alt/alt'
 import './card.css'
 
+//Cartes d'affichage des produits
 const Card = ({prod, cartContent, addToCart, removeFromCart}) => {
-
+const [imageError, setImageError] = useState(false);
     return (
         <>
             <div className="card">
                 <div className="imageField">
-                    <img className="image" src={prod.image} alt={prod.nom} />
+                    {/* Remplacement image si erreur */}
+                    {imageError ?
+                    <Alt nom={prod.nom}/>
+                    :
+                    <img className="image" src={prod.image} alt={prod.nom} onError={() => setImageError(true)}/>
+                    }
                 </div>
                 <h3 className="title">{prod.nom}</h3>
                 <div className="totalProd">
                     <h3 className='price'>{prod.prix} €</h3>
+                    {/* Affichage conditionnel de la quantité dans le panier */}
                     {cartContent.some((item) => item.product.nom === prod.nom) && (
                     <div>x {cartContent.find((item) => item.product.nom === prod.nom).qte}</div>
                     )}

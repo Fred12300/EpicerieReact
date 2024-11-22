@@ -1,0 +1,19 @@
+.brand {
+    width: 100%;
+}
+
+.line {
+    height: .2em;
+    width: 9em;
+    z-index: -1;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(60, 0, 255), rgba(255, 255, 255, 0));
+    position: absolute;
+    top: 4em;
+    transition: left .5s;
+}
+
+.header {
+    position: relative;
+    width: 25em;
+    overflow: hidden;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { List } from './components/List/List';
 import { Cart } from './components/Cart/Cart';
+import { Brand } from './components/Brand/Brand';
 
 
 function App() {
@@ -67,10 +68,7 @@ function App() {
 
   return (
     <>
-    <div className="header">
-      <h1>Mon épicerie en ligne</h1>
-      <img className="logo" src="epicerie.png" alt="logo" />
-    </div>
+    <Brand />
     <div className="main">
       <Cart
         cartContent={cartContent}

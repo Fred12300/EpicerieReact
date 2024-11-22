@@ -1,8 +1,10 @@
 .cart {
     position: fixed;
     top: 10em;
-    right: calc((100vw - 23em)/2);
-    width: 19em;
+    width: 90%;
+    min-width: 375px;
+    max-width: 50vw;
+    right: 20px;
     border: 2px solid black;
     margin: 1em;
     padding: .8em;
@@ -64,3 +66,4 @@
 }
 
 .hidden {display: none;}
+

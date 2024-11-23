@@ -3,6 +3,7 @@ import './App.css'
 import { List } from './components/List/List';
 import { Cart } from './components/Cart/Cart';
 import { Brand } from './components/Brand/Brand';
+import { SearchBar } from './components/SearchBar/SearchBar';
 
 
 function App() {
@@ -68,7 +69,10 @@ function App() {
 
   return (
     <>
-    <Brand />
+    <div className='mainHeader'>
+      <Brand />
+      <SearchBar products={products}/>
+    </div>
     <div className="main">
       <Cart
         cartContent={cartContent}

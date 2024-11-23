@@ -1,5 +1,140 @@
 .details {
     width: 100vw;
-    height: 100%;
     background-color: aquamarine;
+    z-index: 2;
+}
+
+.category {
+    width: 100%;
+    font-weight: 600;
+    text-align: end;
+    margin: 0;
+    color: rgb(10, 71, 90);
+    }
+
+
+.imageField {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 15em;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: white;
+}
+
+.title {
+    background-color: rgba(255, 255, 255, 0.63);
+    margin: 0;
+    padding: .2em .7em;
+    color: rgb(10, 71, 90);
+}
+
+.totalProd {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    gap: 2em;
+    color: rgb(10, 71, 90);
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.icon {
+    width: 1.8em;
+    margin: .2em;
+    padding: .2em;
+    border-radius: 50%;
+    filter: contrast(10%);
+}
+
+.icon:hover {
+    cursor: pointer;
+    filter: invert();
+    background-color: chocolate;
+}
+
+.qtePanel {
+    margin-left: 1em;
+}
+
+.top {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.closeDetails {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: white;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 1.2em;
+    height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: .2em;
+}
+.closeDetails:hover {
+    color: white;
+    background-color: rgb(52, 38, 184);
+}
+
+.etiquette {
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fdfdfd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.productDetails {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 20em;
+}
+
+.nutrition h4 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #444;
+    text-transform: uppercase;
+}
+
+.nutrition table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 0.7em;
+}
+
+.nutrition table th, 
+.nutrition table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.nutrition table th {
+    background: #f8f8f8;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: bold;
 }

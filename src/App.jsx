@@ -52,6 +52,12 @@ function App() {
     setHide(false)
   }
 
+//FOnction de transfert d'info de la barre de recherche
+  const [selection, setSelection] = useState()
+  const handleSelection = (searchSelection) => {
+    setSelection(searchSelection)
+  }
+
 //Récupération des données de l'API
   useEffect(() => {
     fetch('https://api.npoint.io/68bf5db20a3c236f68ed')
@@ -71,7 +77,7 @@ function App() {
     <>
     <div className='mainHeader'>
       <Brand />
-      <SearchBar products={products}/>
+      <SearchBar products={products} handleSelection={handleSelection}/>
     </div>
     <div className="main">
       <Cart
@@ -91,6 +97,7 @@ function App() {
         addToCart={addToCart}
         removeFromCart={removeFromCart}
         showCart={showCart}
+        selection={selection}
       />
       
     </div>

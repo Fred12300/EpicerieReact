@@ -27,14 +27,42 @@
 
 
 .imageField {
+    position: relative;
+    display: inline-block;
     width: 100%;
     height: 15em;
+    overflow: hidden;
 }
 
 .image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.loupeContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.loupe {
+    width: 4em;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.imageField:hover .loupeContainer{
+    opacity: 1;
+    cursor: pointer;
 }
 
 .title {

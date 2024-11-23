@@ -1,11 +1,10 @@
 import './list.css'
 import { useEffect, useState } from 'react'
-import Button from '../Button/Button';
 import Card from '../Card/Card'
 import { Filter } from '../Filter/Filter';
 
 
-export const List = ({showCart, products, categories, setCartContent, cartContent, addToCart, removeFromCart}) => {
+export const List = ({showCart, products, categories, setCartContent, cartContent, addToCart, removeFromCart, selection}) => {
 
   const [filtre, setFiltre] = useState('');
 
@@ -46,6 +45,12 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
     }
   }, [sortBy, filtered]);
   
+  useEffect(() => {
+    if (selection) {
+      setSorted(selection)
+    }
+
+  },[selection])
 
   return (
     <main className='main'>
@@ -55,6 +60,7 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
       filtre={filtre}
       setSortBy={setSortBy}
       showCart={showCart}
+      selection={selection}
     />
     <div className="productsList">
       {sorted.map((prod, index) =>

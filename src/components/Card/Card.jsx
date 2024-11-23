@@ -1,19 +1,48 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Alt } from '../Alt/alt'
 import './card.css'
+import { Details } from '../Details/Details';
 
 //Cartes d'affichage des produits
 const Card = ({prod, cartContent, addToCart, removeFromCart}) => {
-const [imageError, setImageError] = useState(false);
+    const [imageError, setImageError] = useState(false);
+    const [showDetails, setShowDetails] = useState(false);
+    const detailsRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (detailsRef.current && !detailsRef.current.contains(event.target)) {
+                setShowDetails(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
     return (
         <>
+        {showDetails ? 
+            <Details
+                prod={prod}
+                cartContent={cartContent}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+                setShowDetails={setShowDetails}
+                ref={detailsRef}
+            />
+            :
             <div className="card">
                 <div className="imageField">
                     {/* Remplacement image si erreur */}
                     {imageError ?
-                    <Alt nom={prod.nom}/>
+                    <Alt nom={prod.nom} setShowDetails={setShowDetails}
+                    />
                     :
-                    <img className="image" src={prod.image} alt={prod.nom} onError={() => setImageError(true)}/>
+                    <div>
+                        <img className="image" src={prod.image} alt={prod.nom} onError={() => setImageError(true)}/>
+                        <div className='loupeContainer' onClick={()=>setShowDetails(true)}><img src="./search.png" alt="loupe" className='loupe'/></div>
+                    </div>
                     }
                 </div>
                 <h3 className="title">{prod.nom}</h3>
@@ -31,6 +60,7 @@ const [imageError, setImageError] = useState(false);
                     </div>
                 </div>
             </div>
+        }
         </>
     )
 }

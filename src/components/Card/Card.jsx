@@ -9,6 +9,7 @@ const Card = ({prod, cartContent, addToCart, removeFromCart}) => {
     const [showDetails, setShowDetails] = useState(false);
     const detailsRef = useRef(null);
 
+//Détection clic en dehors pour fermeture des détails
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (detailsRef.current && !detailsRef.current.contains(event.target)) {

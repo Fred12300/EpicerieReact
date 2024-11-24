@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './App.css'
 import { List } from './components/List/List';
 import { Cart } from './components/Cart/Cart';
@@ -13,6 +13,7 @@ function App() {
   const [cartContent, setCartContent] = useState([]);
   const categories = [];
   const [hide, setHide] = useState(true);
+  const cartRef = useRef(null);
 
 //Fonction d'ajout au panier
   const addToCart = (prod) => {
@@ -51,6 +52,18 @@ function App() {
     console.log('show');
     setHide(false)
   }
+
+//Détection clic en dehors pour fermeture du panier
+  useEffect(() => {
+    const handleClickOut= (event) => {
+        if (cartRef.current && !cartRef.current.contains(event.target)) {
+            setHide(true);
+        }
+    };
+
+    document.addEventListener('mousedown', handleClickOut);
+    return () => document.removeEventListener('mousedown', handleClickOut);
+}, []);
 
 //FOnction de transfert d'info de la barre de recherche
   const [selection, setSelection] = useState([])
@@ -92,6 +105,7 @@ function App() {
         hideCart = {hideCart}
         showCart={showCart}
         hide={hide}
+        ref={cartRef}
       />
       <List
         products={products}

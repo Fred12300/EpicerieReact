@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { forwardRef, useEffect } from 'react';
 import './cart.css';
 import { CartItem } from '../CartItem/CartItem';
 
-export const Cart = ({ cartContent, addToCart, removeFromCart, hideCart, hide }) => {
+export const Cart = forwardRef(({ cartContent, addToCart, removeFromCart, hideCart, hide }, ref) => {
     let total = 0;
     cartContent.forEach((elem) => {
     total += elem.product.prix * elem.qte;
@@ -29,7 +29,7 @@ export const Cart = ({ cartContent, addToCart, removeFromCart, hideCart, hide })
     }, [hide]);
 
     return (
-    <div className={`cart ${hide ? 'hidden' : ''}`}>
+    <div className={`cart ${hide ? 'hidden' : ''}`} ref={ref}>
         <div className="head">
         <h3>Votre Panier</h3>
         <div className="close" onClick={hideCart}>
@@ -57,4 +57,4 @@ export const Cart = ({ cartContent, addToCart, removeFromCart, hideCart, hide })
         )}
     </div>
     );
-};
+})

@@ -14,6 +14,7 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
 
   const [sorted, setSorted] = useState([]);
 
+//Filtre par categorie
   useEffect(() => {
     if (filtre == '') {
       setFiltered(products);
@@ -22,7 +23,7 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
     }
   }, [filtre, sortBy, products])
 
-
+//Tri par prix ou nom
   useEffect(() => {
     const sortedList = [...filtered]; 
 
@@ -45,6 +46,7 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
     }
   }, [sortBy, filtered]);
   
+//Affichage résultat de recherche
   useEffect(() => {
       setSorted(selection)
       console.log(selection)

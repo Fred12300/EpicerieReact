@@ -15,6 +15,7 @@
 }
 
 .searchResults {
+    z-index: 3;
     position: absolute;
     text-align: center;
     display: flex;

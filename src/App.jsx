@@ -53,10 +53,14 @@ function App() {
   }
 
 //FOnction de transfert d'info de la barre de recherche
-  const [selection, setSelection] = useState()
+  const [selection, setSelection] = useState([])
   const handleSelection = (searchSelection) => {
-    setSelection(searchSelection)
+    setSelection([searchSelection])
+    console.log(searchSelection);
   }
+  useEffect(() => {
+    console.log("Nouvelle valeur (après mise à jour) :", selection);
+}, [selection]);
 
 //Récupération des données de l'API
   useEffect(() => {

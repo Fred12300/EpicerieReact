@@ -13,15 +13,21 @@ export const SearchBar = ({products, handleSelection}) => {
                 onChange={(e)=>setSearchTerm(e.target.value)}
             />
             {searchTerm && <ul className='searchResults'>
-                {searchItems.map((item, index)=>
-                    <div
-                        className='resultItem'
-                        key={index}
-                        onClick={()=>{handleSelection(item)}}
-                    >
-                        {item.nom}
-                    </div>
-                )}
+                {searchItems.map((item, index) => {
+                    return (
+                        <div
+                            className="resultItem"
+                            key={index}
+                            onClick={() => {
+                                handleSelection(item)
+                                setSearchTerm('')
+                                document.querySelector('.searchBar').value = ''
+                            }}
+                        >
+                            {item.nom}
+                        </div>
+                    );
+                })}
                 {searchItems.length == 0 && <span>Aucun produit correspondant</span>}
             </ul>}
             

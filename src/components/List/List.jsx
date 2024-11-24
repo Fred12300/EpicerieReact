@@ -46,10 +46,8 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
   }, [sortBy, filtered]);
   
   useEffect(() => {
-    if (selection) {
       setSorted(selection)
-    }
-
+      console.log(selection)
   },[selection])
 
   return (
@@ -64,7 +62,14 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
     />
     <div className="productsList">
       {sorted.map((prod, index) =>
-      <Card key={index} prod={prod} setCartContent={setCartContent} cartContent={cartContent} addToCart={addToCart} removeFromCart={removeFromCart}/>
+      <Card
+        key={index}
+        prod={prod}
+        setCartContent={setCartContent}
+        cartContent={cartContent}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+      />
       )
       }
     </div>

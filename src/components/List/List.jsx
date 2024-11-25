@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 import { Filter } from '../Filter/Filter';
 
 
-export const List = ({showCart, products, categories, setCartContent, cartContent, addToCart, removeFromCart, selection}) => {
+export const List = ({showCart, products, categories, setCartContent, cartContent, addToCart, removeFromCart, selection, setSelection}) => {
 
   const [filtre, setFiltre] = useState('');
 
@@ -48,9 +48,12 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
   
 //Affichage résultat de recherche
   useEffect(() => {
-      setSorted(selection)
-      console.log(selection)
-  },[selection])
+    if (selection && selection.length > 0) {
+        setSorted(selection);
+    } else {
+        setSorted(filtered);
+    }
+  }, [selection]);
 
   return (
     <main className='main'>
@@ -61,6 +64,7 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
       setSortBy={setSortBy}
       showCart={showCart}
       selection={selection}
+      setSelection={setSelection}
     />
     <div className="productsList">
       {sorted.map((prod, index) =>

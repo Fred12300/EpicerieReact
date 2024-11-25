@@ -1,12 +1,12 @@
 import Button from '../Button/Button'
 import './filter.css'
 
-export const Filter = ({categories, setFiltre, filtre, setSortBy, showCart}) => {
+export const Filter = ({categories, setFiltre, filtre, setSortBy, showCart, setSelection}) => {
 
     return(
     <>
         <div className='nav'>
-            <Button content="Tous" setFiltre={setFiltre} filtre=''/>
+            <Button content="Tous" setFiltre={setFiltre} filtre='' onClick={()=>setSelection()}/>
             {categories.map((cat, index)=><Button key={index} content={cat} setFiltre={setFiltre} filtre={cat}/>)}
             <img onClick={showCart} className='cartBtn' src="cart.png" alt=""/>
 

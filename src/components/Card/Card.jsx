@@ -31,6 +31,7 @@ const Card = ({prod, cartContent, addToCart, removeFromCart}) => {
                 removeFromCart={removeFromCart}
                 setShowDetails={setShowDetails}
                 ref={detailsRef}
+                showDetails={showDetails}
             />
             :
             <div className="card">

@@ -21,7 +21,7 @@ export const List = ({showCart, products, categories, setCartContent, cartConten
     } else {
       setFiltered(products.filter(prod => prod.categorie.nom == filtre))
     }
-  }, [filtre, sortBy, products])
+  }, [filtre, products])
 
 //Tri par prix ou nom
   useEffect(() => {

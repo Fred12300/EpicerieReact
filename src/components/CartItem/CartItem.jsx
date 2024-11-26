@@ -6,7 +6,7 @@ export const CartItem = ({ article, index, addToCart, removeFromCart }) => {
     const [imageError, setImageError] = useState(false);
 
     return (
-        <div className="cartItem" key={index}>
+        <div className="cartItem">
             <div className="item">
             <div className="mini">
                 {imageError ? (

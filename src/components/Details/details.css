@@ -1,6 +1,12 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+
 .details {
     width: 100vw;
-    background-color: aquamarine;
+    max-width: 60em;
     z-index: 2;
 }
 
@@ -13,12 +19,13 @@
     }
 
 
-.imageField {
+.DetailsImageField {
     position: relative;
     display: inline-block;
     width: 100%;
     height: 15em;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.267);
 }
 
 .image {
@@ -90,15 +97,25 @@
     background-color: rgb(52, 38, 184);
 }
 
+.bottom {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: aquamarine;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    padding: 1em;
+}
+
 .etiquette {
     font-family: Arial, sans-serif;
     border: 1px solid #ccc;
-    border-radius: 8px;
     padding: 20px;
     background: #fdfdfd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 2em;
 }
 
